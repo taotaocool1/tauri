@@ -1,5 +1,11 @@
 # Changelog
 
+## \[1.0.0-rc.4]
+
+- Use the default value for `MacConfig.minimumSystemVersion` if the value is set to an empty string.
+  - Bumped due to a bump in tauri-utils.
+  - [c81534eb](https://www.github.com/tauri-apps/tauri/commit/c81534ebd873c358e0346c7949aeb171803149a5) feat(cli): use default macOS minimum system version when it is empty ([#3658](https://www.github.com/tauri-apps/tauri/pull/3658)) on 2022-03-13
+
 ## \[1.0.0-rc.3]
 
 - Parse window icons at compile time.

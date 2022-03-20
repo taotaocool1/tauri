@@ -1,5 +1,10 @@
 # Changelog
 
+## \[1.0.0-rc.4]
+
+- Use the default value for `MacConfig.minimumSystemVersion` if the value is set to an empty string.
+  - [c81534eb](https://www.github.com/tauri-apps/tauri/commit/c81534ebd873c358e0346c7949aeb171803149a5) feat(cli): use default macOS minimum system version when it is empty ([#3658](https://www.github.com/tauri-apps/tauri/pull/3658)) on 2022-03-13
+
 ## \[1.0.0-rc.3]
 
 - Use `is_symlink` API compatible with Rust v1.57 instead of std/fs/struct.Metadata.html#method.is_symlink.

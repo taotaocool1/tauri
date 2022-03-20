@@ -1,5 +1,30 @@
 # Changelog
 
+## \[1.0.0-rc.5]
+
+- Properly apply the CSP when loading a route that fallbacks to index.html.
+  - [bcd43168](https://www.github.com/tauri-apps/tauri/commit/bcd43168a528dc4c54e28788430a93654c8fb452) fix(core): properly add CSP header to fallback routes ([#3641](https://www.github.com/tauri-apps/tauri/pull/3641)) on 2022-03-08
+- Fix CSP usage on Linux when changing it via the `on_web_resource_request` handler.
+  - [f5efc248](https://www.github.com/tauri-apps/tauri/commit/f5efc248da511e0924c9673b947d5de7ef69ac45) fix(core): runtime CSP changes on Linux on 2022-03-07
+- Added `bytes_stream` method to `tauri::api::http::Response`.
+  - [f0db3f9b](https://www.github.com/tauri-apps/tauri/commit/f0db3f9b8357dc304a8254426034c4d1733fbd45) feat(updater): add download progress events ([#3734](https://www.github.com/tauri-apps/tauri/pull/3734)) on 2022-03-18
+- **Breaking change:** The `tauri://` events are no longer emitted to listeners using `Window::listen`. Use the `App::run` closure, `Window::on_window_event` and `Window::on_menu_event` instead.
+  - [5d538ec2](https://www.github.com/tauri-apps/tauri/commit/5d538ec27c246274df4ff5b8057ff78b6364a43f) refactor(core): use the event loop proxy to send updater events ([#3687](https://www.github.com/tauri-apps/tauri/pull/3687)) on 2022-03-15
+- Implement `Debug` for `tauri::State`.
+  - [0b49dd56](https://www.github.com/tauri-apps/tauri/commit/0b49dd566dae21c4dcb1cf110115aab982a7dab6) impl Debug for State closes [#3676](https://www.github.com/tauri-apps/tauri/pull/3676) ([#3677](https://www.github.com/tauri-apps/tauri/pull/3677)) on 2022-03-12
+- **Breaking change:** The `Manager::manage` function now returns a bool indicating whether the type is already managed or not.
+  - [263b45e1](https://www.github.com/tauri-apps/tauri/commit/263b45e1b4e72d6c99fc27e41d0c5e1d134f363b) refactor(core): return boolean on `Manager::manage` ([#3682](https://www.github.com/tauri-apps/tauri/pull/3682)) on 2022-03-13
+- Added `check_for_updates` method to `App` and `AppHandle`.
+  - [4094494a](https://www.github.com/tauri-apps/tauri/commit/4094494a1b3125bf01676dabaa69e56cc8741d59) feat(core): add API to manually trigger updater check ([#3712](https://www.github.com/tauri-apps/tauri/pull/3712)) on 2022-03-17
+- Added download progress events to the updater.
+  - [f0db3f9b](https://www.github.com/tauri-apps/tauri/commit/f0db3f9b8357dc304a8254426034c4d1733fbd45) feat(updater): add download progress events ([#3734](https://www.github.com/tauri-apps/tauri/pull/3734)) on 2022-03-18
+- Send updater events to the `App::run` closure.
+  - [5d538ec2](https://www.github.com/tauri-apps/tauri/commit/5d538ec27c246274df4ff5b8057ff78b6364a43f) refactor(core): use the event loop proxy to send updater events ([#3687](https://www.github.com/tauri-apps/tauri/pull/3687)) on 2022-03-15
+- Run the updater on startup even if no window was created.
+  - [c4ca80f9](https://www.github.com/tauri-apps/tauri/commit/c4ca80f919551cbcae53d931f860115c2d591d14) feat(core): use AppHandle instead of Window on the updater logic ([#3702](https://www.github.com/tauri-apps/tauri/pull/3702)) on 2022-03-15
+- Added the `WindowEvent::FileDrop` variant.
+  - [07d1584c](https://www.github.com/tauri-apps/tauri/commit/07d1584cf06ea326aa45d8044bee1b77ecba5006) feat(core): add `WindowEvent::FileDrop`, closes [#3664](https://www.github.com/tauri-apps/tauri/pull/3664) ([#3686](https://www.github.com/tauri-apps/tauri/pull/3686)) on 2022-03-13
+
 ## \[1.0.0-rc.4]
 
 - Run `AppHandle` cleanup code before restarting the application on the `process > relaunch` API.
